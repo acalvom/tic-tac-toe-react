@@ -60,5 +60,13 @@
 }
 
 .square {
-  height: 30px;
+  height: 60px;
+  color: #333533;
+  border-color: #333533;
+  border-radius: 0;
+}
+
+.square:hover {
+  border: 1px solid #f5cb5c; 
+  background-color: #f5cb5c;
 }
