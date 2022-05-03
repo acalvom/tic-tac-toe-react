@@ -10,8 +10,7 @@ export default function Board(props: IBoardProps) {
   const [isWinner, setIsWinner] = useState(false);
 
   const renderSquare = (id: number) => {
-    console.log(id);
-    return <Square />;
+    return <Square id={id} />;
   };
 
   useEffect(() => {
@@ -20,15 +19,7 @@ export default function Board(props: IBoardProps) {
 
   return (
     <div className={styles.grid}>
-      {renderSquare(0)}
-      {renderSquare(1)}
-      {renderSquare(2)}
-      {renderSquare(3)}
-      {renderSquare(4)}
-      {renderSquare(5)}
-      {renderSquare(3)}
-      {renderSquare(4)}
-      {renderSquare(5)}
+      {squares.map((_, index) => renderSquare(index))}
     </div>
   );
 }
