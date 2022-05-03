@@ -13,18 +13,20 @@ export default function Board(props: IBoardProps) {
     setPlayer(player === "X" ? "O" : "X");
   };
 
-  const renderSquare = (id: number) => {
-    const setSquareValue = () => {
-      setSquares(squares.map((item, index) => (index === id ? player : item)));
-      togglePlayer();
-    };
+  const setSquareValue = (id: number) => {
+    // Check the button where I clicked and change its value
+    setSquares(squares.map((item, index) => (index === id ? player : item)));
+    togglePlayer();
+  };
 
+  const renderSquare = (id: number) => {
     return (
       <Button
         key={id}
         className={styles.square}
         variant="outlined"
-        onClick={setSquareValue}
+        onClick={() => setSquareValue(id)}
+        disabled={squares[id] !== null}
       >
         <span className={styles.player}>{squares[id]}</span>
       </Button>
