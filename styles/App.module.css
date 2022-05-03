@@ -51,22 +51,35 @@
 }
 
 .grid {
-  margin: 2em 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 0;
+  max-width: 300px;
 }
 
 .square {
-  height: 60px;
   color: #333533;
   border-color: #333533;
   border-radius: 0;
+
+  width: 33%;
+  padding-bottom: 33%; /* Same as width, sets height */
+  margin-bottom: 0.5%; /* (100-32*3)/2 */
+  position: relative;
+
 }
 
 .square:hover {
   border: 1px solid #f5cb5c; 
   background-color: #f5cb5c;
+}
+
+.player {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2em;
 }

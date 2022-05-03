@@ -7,7 +7,7 @@ export interface ISquareProps {}
 export function Square(props: ISquareProps) {
   return (
     <Button className={styles.square} variant="outlined" size="large">
-      X
+      <span className={styles.player}>X</span>
     </Button>
   );
 }
