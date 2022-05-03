@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Board from "../components/Board";
 import styles from "../styles/App.module.css";
 
 const Home: NextPage = () => {
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>TIC TAC TOE</h1>
+        <Board />
       </main>
     </div>
   );
