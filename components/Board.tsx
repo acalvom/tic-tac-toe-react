@@ -9,16 +9,13 @@ export default function Board(props: IBoardProps) {
   const [player, setPlayer] = useState("X");
   const [isWinner, setIsWinner] = useState(false);
 
-  const renderSquare = (id: number) => {
-    const handleClick = () => {
-      const sqs = squares.map((item, index) => {
-        if (index === id) {
-          item = player;
-        }
-        return item;
-      });
+  const togglePlayer = () => {
+    setPlayer(player === "X" ? "O" : "X");
+  };
 
-      setSquares(sqs);
+  const renderSquare = (id: number) => {
+    const setSquareValue = () => {
+      setSquares(squares.map((item, index) => (index === id ? player : item)));
       togglePlayer();
     };
 
@@ -27,16 +24,11 @@ export default function Board(props: IBoardProps) {
         key={id}
         className={styles.square}
         variant="outlined"
-        onClick={handleClick}
+        onClick={setSquareValue}
       >
         <span className={styles.player}>{squares[id]}</span>
       </Button>
     );
-  };
-
-  const togglePlayer = () => {
-    if (player === "X") setPlayer("O");
-    else setPlayer("X");
   };
 
   return (
