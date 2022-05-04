@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useState } from "react";
 import styles from "../styles/App.module.css";
 import {
@@ -12,7 +12,10 @@ import { Square } from "./Square";
 export default function Board() {
   const [squares, setSquares] = useState<Player[]>(new Array(9).fill(null));
   const [player, setPlayer] = useState<Player>(PLAYER_X);
-  const [winner, setWinner] = useState(null);
+
+  const restartGame = () => {
+    setSquares(new Array(9).fill(null));
+  };
 
   const togglePlayer = () => {
     setPlayer(player === PLAYER_X ? PLAYER_O : PLAYER_X);
@@ -54,7 +57,7 @@ export default function Board() {
         squares[a].piece === squares[c].piece
       ) {
         return squares[a].piece;
-      }
+      } else if (squares[a] && squares[b] && squares[c]) return null;
     }
     return null;
   }
@@ -64,6 +67,13 @@ export default function Board() {
       {getWinner()
         ? renderWinner()
         : squares.map((_, index) => renderSquare(index))}
+      <Button
+        className={styles.restart}
+        variant="contained"
+        onClick={restartGame}
+      >
+        RESTART GAME
+      </Button>
     </div>
   );
 }

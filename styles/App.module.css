@@ -73,8 +73,22 @@
   border: 1px solid #f5cb5c; 
   background-color: #f5cb5c;
 }
+
 .square:disabled {
   color: #333533;
+}
+
+.restart {
+  background-color: #f5cb5c;
+  color: #333533;
+  font-weight: bold;
+  margin: 1em auto;
+}
+
+.restart:hover {
+  background-color: #f5cc5c64;
+  color: #333533;
+  font-weight: bold;
 }
 
 .player {
