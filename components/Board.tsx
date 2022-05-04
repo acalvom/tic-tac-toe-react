@@ -11,26 +11,21 @@ enum COLOR {
   X = "#cfdbd5",
   O = "#e8eddf",
 }
-
 export interface Player {
   piece: PIECE;
   color: COLOR;
 }
 
+const PLAYER_X = { piece: PIECE.X, color: COLOR.X };
+const PLAYER_O = { piece: PIECE.O, color: COLOR.O };
+
 export default function Board(props: IBoardProps) {
   const [squares, setSquares] = useState<Player[]>(new Array(9).fill(null));
-  const [player, setPlayer] = useState<Player>({
-    piece: PIECE.X,
-    color: COLOR.X,
-  });
+  const [player, setPlayer] = useState<Player>(PLAYER_X);
   const [isWinner, setIsWinner] = useState<Boolean>(false);
 
   const togglePlayer = () => {
-    setPlayer(
-      player.piece === PIECE.X
-        ? { piece: PIECE.O, color: COLOR.O }
-        : { piece: PIECE.X, color: COLOR.X }
-    );
+    setPlayer(player === PLAYER_X ? PLAYER_O : PLAYER_X);
   };
 
   const setSquareValue = (id: number) => {
