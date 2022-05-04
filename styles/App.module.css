@@ -63,17 +63,18 @@
   color: #333533;
   border-color: #333533;
   border-radius: 0;
-
   width: 33%;
   padding-bottom: 33%; /* Same as width, sets height */
   margin-bottom: 0.5%; /* (100-32*3)/2 */
   position: relative;
-
 }
 
 .square:hover {
   border: 1px solid #f5cb5c; 
   background-color: #f5cb5c;
+}
+.square:disabled {
+  color: #333533;
 }
 
 .player {
