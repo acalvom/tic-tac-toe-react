@@ -3,14 +3,18 @@ import { useState } from "react";
 import styles from "../styles/App.module.css";
 
 export interface IBoardProps {}
+enum PLAYER {
+  X = "X",
+  O = "O",
+}
 
 export default function Board(props: IBoardProps) {
-  const [squares, setSquares] = useState(new Array(9).fill(null));
-  const [player, setPlayer] = useState("X");
-  const [isWinner, setIsWinner] = useState(false);
+  const [squares, setSquares] = useState<PLAYER[]>(new Array(9).fill(null));
+  const [player, setPlayer] = useState(PLAYER.X);
+  const [isWinner, setIsWinner] = useState<Boolean>(false);
 
   const togglePlayer = () => {
-    setPlayer(player === "X" ? "O" : "X");
+    setPlayer(player === PLAYER.X ? PLAYER.O : PLAYER.X);
   };
 
   const setSquareValue = (id: number) => {
