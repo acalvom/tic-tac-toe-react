@@ -1,7 +1,7 @@
-import { Button } from "@mui/material";
 import { useState } from "react";
 import styles from "../styles/App.module.css";
 import { Player, PLAYER_O, PLAYER_X } from "../utils/types";
+import { Square } from "./Square";
 
 export default function Board() {
   const [squares, setSquares] = useState<Player[]>(new Array(9).fill(null));
@@ -20,18 +20,12 @@ export default function Board() {
 
   const renderSquare = (id: number) => {
     return (
-      <Button
+      <Square
         key={id}
-        className={styles.square}
-        variant="outlined"
-        onClick={() => setSquareValue(id)}
-        sx={{ backgroundColor: squares[id] && squares[id].color }}
-        disabled={squares[id] !== null}
-      >
-        <span className={styles.player}>
-          {squares[id] && squares[id].piece}
-        </span>
-      </Button>
+        id={id}
+        squares={squares}
+        setSquareValue={setSquareValue}
+      />
     );
   };
 
