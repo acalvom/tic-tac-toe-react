@@ -1,25 +1,9 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
 import styles from "../styles/App.module.css";
+import { Player, PLAYER_O, PLAYER_X } from "../utils/types";
 
-export interface IBoardProps {}
-enum PIECE {
-  X = "X",
-  O = "O",
-}
-enum COLOR {
-  X = "#cfdbd5",
-  O = "#e8eddf",
-}
-export interface Player {
-  piece: PIECE;
-  color: COLOR;
-}
-
-const PLAYER_X = { piece: PIECE.X, color: COLOR.X };
-const PLAYER_O = { piece: PIECE.O, color: COLOR.O };
-
-export default function Board(props: IBoardProps) {
+export default function Board() {
   const [squares, setSquares] = useState<Player[]>(new Array(9).fill(null));
   const [player, setPlayer] = useState<Player>(PLAYER_X);
   const [isWinner, setIsWinner] = useState<Boolean>(false);
