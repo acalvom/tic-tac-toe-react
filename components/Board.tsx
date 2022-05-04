@@ -1,12 +1,18 @@
+import { Typography } from "@mui/material";
 import { useState } from "react";
 import styles from "../styles/App.module.css";
-import { Player, PLAYER_O, PLAYER_X } from "../utils/types";
+import {
+  Player,
+  PLAYER_O,
+  PLAYER_X,
+  WINNING_COMBINATIONS,
+} from "../utils/types";
 import { Square } from "./Square";
 
 export default function Board() {
   const [squares, setSquares] = useState<Player[]>(new Array(9).fill(null));
   const [player, setPlayer] = useState<Player>(PLAYER_X);
-  const [isWinner, setIsWinner] = useState<Boolean>(false);
+  const [winner, setWinner] = useState(null);
 
   const togglePlayer = () => {
     setPlayer(player === PLAYER_X ? PLAYER_O : PLAYER_X);
@@ -29,9 +35,35 @@ export default function Board() {
     );
   };
 
+  const renderWinner = () => {
+    return (
+      <Typography variant="h5" sx={{ color: player.color }}>
+        WINNER: PLAYER {getWinner()}
+      </Typography>
+    );
+  };
+
+  function getWinner() {
+    for (let i = 0; i < WINNING_COMBINATIONS.length; i++) {
+      const [a, b, c] = WINNING_COMBINATIONS[i];
+      if (
+        squares[a] &&
+        squares[b] &&
+        squares[c] &&
+        squares[a].piece === squares[b].piece &&
+        squares[a].piece === squares[c].piece
+      ) {
+        return squares[a].piece;
+      }
+    }
+    return null;
+  }
+
   return (
     <div className={styles.grid}>
-      {squares.map((_, index) => renderSquare(index))}
+      {getWinner()
+        ? renderWinner()
+        : squares.map((_, index) => renderSquare(index))}
     </div>
   );
 }
