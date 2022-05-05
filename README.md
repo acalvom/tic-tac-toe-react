@@ -1,31 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# :electron: TIC-TA-TOE GAME 〰️ With React & TypeScript
 
-## Getting Started
+> Front-End React game in Typescript to play Tic Tac Toe game  
+> ✖️ 🟡 ✖️  
+> 🟡 ✖️ ✖️  
+> ✖️ ✖️ 🟡
 
-First, run the development server:
+## ⚙️ Used Technologies
 
-```bash
-npm run dev
-# or
-yarn dev
+▪️`Git` `GitHub`  
+▪️`React` `TypeScript`  
+▪️`Material UI`
+
+## 🏁 Project Set-up
+
+```sh
+> cd <folder path>
+> git clone https://github.com/acalvom/tic-tac-toe-react
+> cd tic-tac-toe-react
+> tic-tac-toe-react  > npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✅ Go Live
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+#### ▶️ Run app in dev: `> npm run dev` or `yarn dev`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### 🖥️ See app: Open the browser in [http://localhost:3000](http://localhost:3000)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### 🛠️ Build app: `> npm run build` or `yarn build`
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### 💾 Run builded app: `> npm run start` or `yarn start`
 
 ## Deploy on Vercel
 
