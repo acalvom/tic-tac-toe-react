@@ -10,6 +10,18 @@ import {
 import { Square } from "./Square";
 
 export default function Board() {
+  const restartTheme = {
+    backgroundColor: "#f5cb5c",
+    color: "#333533",
+    fontWeight: "bold",
+    margin: "1em auto",
+    ":hover": {
+      backgroundColor: "#f5cc5c64",
+      color: "#333533",
+      fontWeight: "bold",
+    },
+  };
+
   const [squares, setSquares] = useState<Player[]>(new Array(9).fill(null));
   const [player, setPlayer] = useState<Player>(PLAYER_X);
 
@@ -67,11 +79,7 @@ export default function Board() {
       {getWinner()
         ? renderWinner()
         : squares.map((_, index) => renderSquare(index))}
-      <Button
-        className={styles.restart}
-        variant="contained"
-        onClick={restartGame}
-      >
+      <Button sx={restartTheme} variant="contained" onClick={restartGame}>
         RESTART GAME
       </Button>
     </div>

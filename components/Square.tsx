@@ -10,12 +10,29 @@ export interface ISquareProps {
 }
 
 export function Square({ id, squares, setSquareValue }: ISquareProps) {
+  const squareTheme = {
+    color: "#333533",
+    borderColor: "#333533",
+    borderRadius: "0",
+    width: "33%",
+    paddingBottom: "33%",
+    marginBottom: "0.5%",
+    position: "relative",
+    backgroundColor: squares[id] && squares[id].color,
+    ":hover": {
+      backgroundColor: "#f5cb5c",
+      border: "1px solid #f5cb5c",
+    },
+    ":disabled": {
+      color: "#333533",
+    },
+  };
+
   return (
     <Button
-      className={styles.square}
+      sx={squareTheme}
       variant="outlined"
       onClick={() => setSquareValue(id)}
-      sx={{ backgroundColor: squares[id] && squares[id].color }}
       disabled={squares[id] !== null}
     >
       <span className={styles.player}>{squares[id] && squares[id].piece}</span>
